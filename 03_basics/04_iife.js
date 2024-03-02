@@ -12,7 +12,7 @@
 (function chai(){
     // named IIFE
     console.log(`DB Connected`);
-})(); // using IIFE you have to use semicolan.
+})(); // while using IIFE you have to use semicolan.
 
 ( (name) =>{
     console.log(`DB Connected two ${name}`);
