@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Parth Dave</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    // setTimeout is a method which calls the API.
+    // it is not a part of core javascript.
+    // clearInterval and clearTimeout are the function which are part of this.
+    // handler is a function.
+    
+    // setTimeout(function(){
+    //     console.log("Parth Dave");
+    // },2000)
+    
+    const sayMyName = function(){
+        console.log("Parth Dave");
+    }
+
+    const changeText = function(){
+        document.querySelector('h1').innerHTML = "JS tutorial"
+    }
+
+    // giving reference of the function
+    const changeMe = setTimeout(changeText,2000)
+
+    // if need to stop the event we use clear timeout 
+
+    document.querySelector('#stop').addEventListener('click', function(){
+        clearTimeout(changeMe)
+        console.log("Stoped");
+    })
+
+</script>
+</html>
