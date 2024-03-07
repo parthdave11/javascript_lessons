@@ -12,16 +12,45 @@ const randomColor = function (){
   // console.log(Math.floor(Math.random() * 16))
   // console.log(randomColor())
   
-  let changeColor
+
   
-  // changing color every second
-  document.querySelector('#start').addEventListener('click',function(){
-    changeColor = setInterval(function(){
-      document.querySelector('body').style.backgroundColor = randomColor()
-    },1000)
-  })
+  // method with small errors
+
+  // let changeColor
   
-  // stoping the color
-  document.querySelector('#stop').addEventListener('click',function(){
-    clearInterval(changeColor)
-  })
+  // // changing color every second
+  // document.querySelector('#start').addEventListener('click',function(){
+  //   changeColor = setInterval(function(){
+  //     document.querySelector('body').style.backgroundColor = randomColor()
+  //   },1000)
+  // })
+  
+  // // stoping the color
+  // document.querySelector('#stop').addEventListener('click',function(){
+  //   clearInterval(changeColor)
+  //   // changeColor = null
+  // })
+
+
+
+
+  // method without errors
+
+  let intervelId;
+  const startChangingColor = function (){
+    if(!intervelId){
+      intervelId = setInterval(changeBgColor, 1000)
+    }
+
+    function changeBgColor(){
+      document.querySelector('body').style.backgroundColor = randomColor();
+    }
+  }
+
+  const stopChangingColor = function (){
+    clearInterval(intervelId)
+    intervelId = null
+  }
+
+  document.querySelector('#start').addEventListener('click',startChangingColor)
+  document.querySelector('#stop').addEventListener('click',stopChangingColor)
